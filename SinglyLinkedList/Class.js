@@ -150,15 +150,3 @@ class SinglyLinkedList {
         
     }
 }
-
-let list = new SinglyLinkedList()
-
-
-list.push(14)
-list.push(15)
-list.push(16)
-list.push(17)
-
-list.reverse()
-
-console.log(JSON.stringify(list, null, 3))
