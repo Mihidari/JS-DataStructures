@@ -54,4 +54,76 @@ class BinarySearchTree {
 
         return undefined
     }
+
+    //Breadth First Search
+    BFS() {
+        if(!this.root) return []
+
+        let queue = [this.root]
+        let visited = []
+
+        while(queue.length) {
+            let node = queue.shift()
+            
+            if(node.left) queue.push(node.left)
+            if(node.rigth) queue.push(node.rigth)
+
+            visited.push(node.value)
+        }
+        return visited
+    } 
+
+    //Depth First preOrder
+    DFPreOrder() {
+        if(!this.root) return []
+
+        let visited = []
+        let current = this.root
+
+        const helper = (node) => {
+            visited.push(node.value)
+            if(node.left) helper(node.left)
+            if(node.rigth) helper(node.rigth)
+        }
+
+        helper(current)
+
+        return visited
+    }
+
+    //Depth First postOrder
+    DFPostOrder() {
+        if(!this.root) return []
+
+        let visited = []
+        let current = this.root
+
+        const helper = (node) => {
+            if(node.left) helper(node.left)
+            if(node.rigth) helper(node.rigth)
+            visited.push(node.value)
+        }
+
+        helper(current)
+
+        return visited
+    }
+
+    //Depth First inOrder
+    DFInOrder() {
+        if(!this.root) return []
+
+        let visited = []
+        let current = this.root
+
+        const helper = (node) => {
+            if(node.left) helper(node.left)
+            visited.push(node.value)
+            if(node.rigth) helper(node.rigth)
+        }
+
+        helper(current)
+
+        return visited
+    }
 }
